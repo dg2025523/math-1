@@ -185,7 +185,7 @@ def split_page_into_questions(image):
         crop = image.crop((0, y1, w, y2))
         text = extract_text(crop)
         if text.strip():
-            parts.append({"image": crop, "text": text, "part": idx + 1})
+            parts.append({"image": image, "text": text, "part": idx + 1})
     return parts or [{"image": image, "text": extract_text(image), "part": 1}]
 
 
@@ -442,7 +442,7 @@ if uploaded_files:
 
                     st.image(
                         r["image"],
-                        width=500
+                        caption
                     )
 
 
